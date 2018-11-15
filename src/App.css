@@ -18,3 +18,43 @@ footer {
   color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
 }
+
+/* hair */
+.Blonde {
+  fill: #E2D29E;
+  background: #E2D29E;
+}
+.LightBrown {
+  fill: #785848;
+  background: #785848;
+}
+.Brown {
+  fill: #473831;
+  background: #473831;
+}
+.DarkBrown {
+  fill: #1B1414;
+  background: #1B1414;
+}
+
+/* skin */
+.NaturalBeige {
+  fill: #FDE0C2;
+  background: #FDE0C2;
+}
+.CreamyBeige {
+  fill: #E3B996;
+  background: #E3B996;
+}
+.Caramel {
+  fill: #CA8C6D;
+  background: #CA8C6D;
+}
+.Chocolate {
+  fill: #AC6C47;
+  background: #AC6C47;
+}
+.DarkChocolate {
+  fill: #6F4F3F;
+  background: #6F4F3F;
+}
