@@ -20,12 +20,12 @@ const Puddle = ({hairColor}) => (
   <path id="Puddle" className={`hair ${hairColor}`} d="M318.9,6c-12.6,0-23.4,4.5-31.4,13.5C279.4,10.5,267.7,6,256,6c-12.6,0-23.4,4.5-31.4,13.5	c-8.1-9-19.8-13.5-31.4-13.5c-16.2,0-30.5,8.1-37.7,20.7c-5.4-1.8-10.8-2.7-16.2-2.7c-25.2,0-44.9,19.8-44.9,44.9v0.9	c-20.7,4.5-35.9,22.5-35.9,44c0,21.6,15.3,39.5,35.9,44v0.9c0,25.2,19.8,44.9,44.9,44.9c5.4,0,10.8-0.9,16.2-2.7	c8.1,12.6,22.5,20.7,37.7,20.7c11.7,0,22.5-4.5,31.4-13.5c8.1,9,19.8,13.5,31.4,13.5c11.7,0,22.5-4.5,31.4-13.5	c8.1,9,19.8,13.5,31.4,13.5c15.3,0,29.6-8.1,37.7-20.7c5.4,1.8,10.8,2.7,16.2,2.7c25.2,0,44.9-19.8,44.9-44.9v-0.9	c20.7-4.5,35.9-22.5,35.9-44c0-21.6-15.3-39.5-35.9-44v-0.9c0-25.2-19.8-44.9-44.9-44.9c-6.3,0-11.7,0.9-16.2,2.7	C348.5,14.1,334.1,6,318.9,6L318.9,6z" />
 );
 
-export const hair_style = (color) => ({
-  comb: <Comb hairColor={color} />,
-  guile: <Guile hairColor={color} />,
-  mexican: <Mexican hairColor={color} />,
-  puddle: <Puddle hairColor={color} />,
-});
+export const hair_style = {
+  comb: Comb,
+  guile: Guile,
+  mexican: Mexican,
+  puddle: Puddle,
+};
 
 export const hair_colors = {
   Blonde: "Blonde",
@@ -42,10 +42,14 @@ export const skin_colors = {
   DarkChocolate: "DarkChocolate",
 }
 
+const withColor = (Component, hairColor) => <Component hairColor={hairColor} />;
+
+const HairWithColor = ({hair, hairColor}) => withColor(hair_style[hair], hairColor);
+
 const Man = ({hair, hairColor, skinColor}) => (
   <svg xmlns="http://www.w3.org/2000/svg" id="man" viewBox="0 0 512 512">
     <Face skinColor={skinColor}/>
-    {hair_style(hairColor)[hair]}
+    <HairWithColor hair={hair} hairColor={hairColor} />
   </svg>
 );
 

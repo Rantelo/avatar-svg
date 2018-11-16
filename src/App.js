@@ -4,7 +4,7 @@ import './App.css';
 
 const HairSelector = ({action}) => {
   return Object
-    .keys(hair_style())
+    .keys(hair_style)
     .map((e) => (
       <button
         key={`hair-${e}`}
